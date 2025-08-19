@@ -1,0 +1,11 @@
+{
+  "name": "report-server",
+  "version": "1.0.0",
+  "scripts": {
+    "report": "node report-server/generateReport.js"
+  },
+  "dependencies": {
+    "simple-git": "^3.19.1",
+    "fs-extra": "^11.1.1"
+  }
+}

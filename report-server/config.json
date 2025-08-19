@@ -1,0 +1,7 @@
+{
+  "projects": [
+    { "name": "backend", "path": "../../evolusipark_backend" },
+    { "name": "frontend", "path": "../../evosist_parking-1.0.0" }
+  ],
+  "reportPath": "./logs"
+}
