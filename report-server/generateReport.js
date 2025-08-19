@@ -1,24 +1,31 @@
-// report-server/generateReport.js
 const simpleGit = require('simple-git');
 const fs = require('fs-extra');
 const path = require('path');
+const readline = require('readline');
 
 const config = {
   projects: [
     { name: 'backend', path: 'D:/Github/evosist_parking-backend' },
     { name: 'frontend', path: 'D:/Github/evosist_parking-frontend' }
   ],
+  reportRepo: path.join(__dirname, '..'),
   reportPath: path.join(__dirname, '../logs'),
   authors: ['mohammad', 'evosist-bot'],
 };
 
 const getToday = () => new Date().toISOString().slice(0, 10);
 
-const getCommits = async (repoPath) => {
-  if (!fs.existsSync(repoPath)) {
-    throw new Error(`❌ Repo path not found: ${repoPath}`);
-  }
+const promptCommitMessage = () => {
+  return new Promise(resolve => {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question('📝 Masukkan judul commit: ', msg => {
+      rl.close();
+      resolve(msg.trim());
+    });
+  });
+};
 
+const getCommits = async (repoPath) => {
   const git = simpleGit(repoPath);
   const today = getToday();
   const log = await git.log({
@@ -38,7 +45,6 @@ const getCommits = async (repoPath) => {
 
 const generateHTML = (commits) => {
   if (commits.length === 0) return `<p><i>Tidak ada commit hari ini.</i></p>`;
-
   return `<ul>\n${commits.map(c => `
     <li>
       <strong>${c.author}</strong> — ${c.message}<br>
@@ -52,6 +58,25 @@ const writeProjectReport = async (project, commits) => {
   const filePath = path.join(config.reportPath, project.name, `${today}.html`);
   await fs.ensureDir(path.dirname(filePath));
   await fs.writeFile(filePath, html);
+};
+
+const pushProjectRepo = async (project, commitMessage) => {
+  const git = simpleGit(project.path);
+  console.log(`🔄 Push ke ${project.name}...`);
+  try {
+    await git.add('.');
+    await git.commit(commitMessage);
+    await git.push();
+    console.log(`✅ Berhasil push ke ${project.name}`);
+    return true;
+  } catch (err) {
+    if (err.message.includes('CONFLICT') || err.message.includes('merge')) {
+      console.log(`⚠️ Konflik saat push ke ${project.name}`);
+    } else {
+      console.log(`❌ Gagal push ke ${project.name}: ${err.message}`);
+    }
+    return false;
+  }
 };
 
 const generateIndex = async () => {
@@ -86,24 +111,40 @@ const generateIndex = async () => {
   </html>
   `;
 
-  await fs.writeFile(path.join(__dirname, '../index.html'), html);
+  await fs.writeFile(path.join(config.reportRepo, 'index.html'), html);
 };
 
-const commitAndPushReport = async () => {
-  const reportGit = simpleGit(path.join(__dirname, '..'));
-  await reportGit.add(['./logs/*', 'index.html']);
-  await reportGit.commit(`Update report ${getToday()}`);
-  await reportGit.push();
+const pushReportRepo = async (commitMessage) => {
+  const git = simpleGit(config.reportRepo);
+  await git.add(['./logs/*', 'index.html']);
+  await git.commit(commitMessage);
+  await git.push();
+  console.log('📦 Repo laporan berhasil di-push');
 };
 
 const main = async () => {
+  const commitMessage = await promptCommitMessage();
+  if (!commitMessage || commitMessage.length < 5) {
+    console.log('❌ Judul commit terlalu pendek.');
+    return;
+  }
+
+  let allSuccess = true;
+
   for (const project of config.projects) {
     const commits = await getCommits(project.path);
     await writeProjectReport(project, commits);
+    const success = await pushProjectRepo(project, commitMessage);
+    if (!success) allSuccess = false;
   }
 
-  await generateIndex();
-  await commitAndPushReport();
+  if (allSuccess) {
+    await generateIndex();
+    await pushReportRepo(commitMessage);
+    console.log('🌐 Laporan harian berhasil disimpan dan index.html diperbarui');
+  } else {
+    console.log('⛔ Push ke salah satu repo gagal. Laporan tidak dikirim ke repo report.');
+  }
 };
 
 main().catch(err => {

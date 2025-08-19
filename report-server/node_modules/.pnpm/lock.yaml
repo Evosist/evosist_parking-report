@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       fs-extra:
-        specifier: ^11.1.1
+        specifier: ^11.3.1
         version: 11.3.1
       simple-git:
-        specifier: ^3.19.1
+        specifier: ^3.28.0
         version: 3.28.0
 
 packages:
