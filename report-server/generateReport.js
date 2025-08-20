@@ -8,8 +8,10 @@ const config = {
     { name: 'backend', path: 'D:/Github/evosist_parking-backend' },
     { name: 'frontend', path: 'D:/Github/evosist_parking-frontend' }
   ],
-  reportRepo: path.join(__dirname, '..'),
-  reportPath: path.join(__dirname, '../logs'),
+  // reportRepo: path.resolve(__dirname, '..'), // pastikan path absolut
+  reportRepo: 'D:/Github/evosist_parking-report',
+  // reportPath: path.resolve(__dirname, '../logs'),
+  reportPath: 'D:/Github/evosist_parking-report/logs',
   authors: ['Three Hartova','Zen Zalepik', 'Itmamul Fahmi', 'evosist-bot'],
 };
 
@@ -83,23 +85,15 @@ const pushProjectRepo = async (project, commitMessage) => {
   console.log(`🚀 Push ke repo project: ${project.name}`);
 
   try {
-    console.log(`🔄 Fetch dari remote ${project.name}...`);
     await git.fetch();
-
-    console.log(`🔀 Merge dengan remote ${project.name}...`);
-    await git.merge(['origin/main']); // sesuaikan jika bukan 'main'
-
+    await git.merge(['origin/main']);
     await git.add('.');
     await git.commit(commitMessage);
     await git.push();
     console.log(`✅ Push ke ${project.name} berhasil`);
     return true;
   } catch (err) {
-    if (err.message.includes('CONFLICT') || err.message.includes('merge')) {
-      console.log(`⚠️ Konflik saat merge/push ke ${project.name}. Perlu resolusi manual.`);
-    } else {
-      console.log(`❌ Gagal push ke ${project.name}: ${err.message}`);
-    }
+    console.log(`❌ Gagal push ke ${project.name}: ${err.message}`);
     return false;
   }
 };
@@ -149,13 +143,37 @@ const pushReportRepo = async (commitMessage) => {
   console.log(`🚀 Push ke repo pusat (reportRepo)`);
 
   try {
-    await git.add(['./logs/*', 'index.html']);
-    const status = await git.status();
-    if (status.files.length === 0) {
-      console.log(`ℹ️ Tidak ada perubahan untuk di-commit di repo pusat`);
+    const isRepo = await git.checkIsRepo();
+    if (!isRepo) {
+      console.log('⛔ Folder reportRepo bukan repo Git aktif.');
       return false;
     }
 
+    const remotes = await git.getRemotes(true);
+    if (remotes.length === 0) {
+      console.log('⛔ Tidak ada remote di repo pusat. Tambahkan dengan: git remote add origin <url>');
+      return false;
+    }
+
+    const branch = await git.branch();
+
+    // 🔧 perbaikan di sini
+    if (!branch.tracking || branch.tracking.length === 0) {
+      console.log(`⚠️ Branch ${branch.current} belum tracking remote. Push pertama kali dengan -u...`);
+      await git.add('.');
+      await git.commit(commitMessage);
+      await git.push(['-u', 'origin', branch.current]);
+      console.log(`✅ Repo pusat berhasil di-push (tracking baru dibuat)`);
+      return true;
+    }
+
+    const status = await git.status();
+    if (status.files.length === 0) {
+      console.log(`ℹ️ Tidak ada perubahan untuk di-commit di repo pusat`);
+      return true; // ✅ aku ubah return jadi true, supaya script tetap lanjut
+    }
+
+    await git.add('.');
     await git.commit(commitMessage);
     await git.push();
     console.log(`✅ Repo pusat berhasil di-push`);
