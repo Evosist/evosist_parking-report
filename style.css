@@ -164,3 +164,13 @@ section > div > ul > li > a,
 .teks-link{
   color:#ff5b2a!;
 }
+
+.massage-commit{
+  font-weight: 600;
+  font-size:16;
+}
+
+.time-commit,.link-commit{
+  font-size:12px;
+  opacity: 0.72;
+}
