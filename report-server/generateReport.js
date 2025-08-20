@@ -99,36 +99,81 @@ const pushProjectRepo = async (project, commitMessage) => {
 };
 
 const generateIndex = async () => {
-  const today = getToday();
-  console.log(`📦 Menggabungkan laporan ke index.html`);
-  const sections = [];
+  console.log(`📦 Menggabungkan laporan 30 hari terakhir ke index.html`);
+  const today = new Date();
+  const sectionsByDay = {};
 
-  for (const project of config.projects) {
-    const filePath = path.join(config.reportPath, project.name, `${today}.html`);
-    if (await fs.pathExists(filePath)) {
-      const content = await fs.readFile(filePath, 'utf-8');
-      sections.push(`<section><h2>${project.name.toUpperCase()}</h2>${content}</section>`);
-    } else {
-      console.log(`⚠️ File laporan tidak ditemukan: ${filePath}`);
+  for (let i = 0; i < 30; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    const dayStr = d.toISOString().slice(0, 10);
+
+    const sections = [];
+    for (const project of config.projects) {
+      const filePath = path.join(config.reportPath, project.name, `${dayStr}.html`);
+      if (await fs.pathExists(filePath)) {
+        const content = await fs.readFile(filePath, 'utf-8');
+        sections.push(`<section><h3>${project.name.toUpperCase()}</h3>${content}</section>`);
+      }
+    }
+    if (sections.length > 0) {
+      sectionsByDay[dayStr] = sections.join('\n');
     }
   }
+
+  // tab buttons
+  const tabs = Object.keys(sectionsByDay).map((day, idx) =>
+    `<button onclick="showDay('${day}')" class="${idx === 0 ? 'active' : ''}">${day}</button>`
+  ).join('\n');
+
+  // content
+  const contents = Object.entries(sectionsByDay).map(([day, content], idx) =>
+    `<div id="${day}" class="day-content ${idx === 0 ? 'active' : ''}">
+      <h2>${day}</h2>
+      ${content}
+    </div>`
+  ).join('\n');
 
   const html = `
   <!DOCTYPE html>
   <html>
   <head>
     <meta charset="UTF-8">
-    <title>Laporan Gabungan ${today}</title>
+    <title>Laporan Gabungan 30 Hari</title>
     <style>
-      body { font-family: sans-serif; padding: 2rem; }
+      body { font-family: sans-serif; padding: 1rem; }
       h1 { text-align: center; }
-      section { margin-bottom: 2rem; }
-      ul { line-height: 1.6; }
+      .tabs { display: flex; flex-wrap: wrap; margin-bottom: 1rem; }
+      .tabs button {
+        margin: 0.2rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+        background: #f5f5f5;
+        cursor: pointer;
+      }
+      .tabs button.active {
+        background: #333;
+        color: white;
+      }
+      .day-content { display: none; }
+      .day-content.active { display: block; }
+      section { margin-bottom: 1rem; }
     </style>
   </head>
   <body>
-    <h1>Laporan Commit Tim - ${today}</h1>
-    ${sections.join('\n')}
+    <h1>Laporan Commit Tim (30 Hari Terakhir)</h1>
+    <div class="tabs">
+      ${tabs}
+    </div>
+    ${contents}
+    <script>
+      function showDay(day) {
+        document.querySelectorAll('.day-content').forEach(d => d.classList.remove('active'));
+        document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+        document.getElementById(day).classList.add('active');
+        [...document.querySelectorAll('.tabs button')].find(b => b.textContent === day).classList.add('active');
+      }
+    </script>
   </body>
   </html>
   `;
