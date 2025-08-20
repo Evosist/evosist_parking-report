@@ -55,9 +55,9 @@ const generateHTML = (commits) => {
       (c) => `
     <li>
       <strong>${c.author}</strong>
-      <div class="massage-commit">${c.message}</div>
-      <div class="time-commit">(${new Date(c.date).toLocaleTimeString()})</div>
-      <div class="link-commit">Buka link commit: <a href="${
+      <div class="massage-commit"> ✉️${c.message}</div>
+      <div class="time-commit">🕒 (${new Date(c.date).toLocaleTimeString()})</div>
+      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="${
         c.link
       }" target="_blank">${c.hash.slice(0, 7)}</a> </div>
     </li>`

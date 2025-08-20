@@ -146,15 +146,21 @@ section > div > ul > li > strong {
 }
 
 section > div > ul > li > strong::before {
-  content: "";
-  height: 20px;
-  width: 20px;
-  background: #000000;
-  border: 1px solid #000000;
+  content: "👤";
+  width: 28px;
+  height: 28px;
+  background: hsla(0, 0%, 0%, 0.12);
+  border: 1px solid hsla(0, 0%, 0%, 0.4);
   border-radius: 32px;
   position: inline-block;
+  display:flex;justify-content: center;align-items: center;
 }
 
 .text-primary {
   color: #ff5b2a;
+}
+
+section > div > ul > li > a,
+.teks-link{
+  color:#ff5b2a!;
 }
