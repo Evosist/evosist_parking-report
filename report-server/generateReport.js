@@ -134,7 +134,7 @@ const generateIndex = async () => {
       .day-content.active { display: block; }
       section { margin-bottom: 1rem; }
     </style>-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <h1>Laporan Commit Tim (30 Hari Terakhir)</h1>
