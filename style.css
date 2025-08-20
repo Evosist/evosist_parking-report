@@ -127,7 +127,7 @@ section h1{
   margin-bottom: 16px;
 }
 
-section > ul > li {
+section > div > ul > li {
   border: 1px solid hsla(0, 0%, 0%, 0.2);
   margin-bottom: 12px;
   padding: 12px;
@@ -138,14 +138,14 @@ section > ul > li {
   /* position:relative; */
 }
 
-section > ul > li > strong {
+section > div > ul > li > strong {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
-section > ul > li > strong::before {
+section > div > ul > li > strong::before {
   content: "";
   height: 20px;
   width: 20px;
