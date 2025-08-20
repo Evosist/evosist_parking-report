@@ -3519,6 +3519,38 @@
     }
   }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function highlightText(text, colorClass) {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    const nodes = [];
+    while (walker.nextNode()) {
+      if (walker.currentNode.nodeValue.includes(text)) {
+        nodes.push(walker.currentNode);
+      }
+    }
+    nodes.forEach(node => {
+      const span = document.createElement("span");
+      span.className = colorClass;
+      span.textContent = text;
+
+      const parts = node.nodeValue.split(text);
+      const frag = document.createDocumentFragment();
+
+      parts.forEach((part, i) => {
+        if (part) frag.appendChild(document.createTextNode(part));
+        if (i < parts.length - 1) frag.appendChild(span.cloneNode(true));
+      });
+
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  // contoh pakai Tailwind (pastikan sudah include tailwind cdn v3.4.17)
+  highlightText("Zen Zalepik", "text-blue-500 font-bold");
+  highlightText("fahmiitmamul", "text-purple-500 font-bold");
+});
+</script>
 
   </body>
   </html>
