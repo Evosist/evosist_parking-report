@@ -120,9 +120,9 @@ const generateIndex = async () => {
       <h1 class="text-2xl font-bold uppercase">${project.name.toUpperCase()}</h1>
       <button class="text-xl font-bold" id="btn-${
         project.name
-      }-${dayStr}">+</button>
+      }-${dayStr}">-</button>
     </div>
-    <div id="${project.name}-${dayStr}" class="hidden px-4 py-2">
+    <div id="${project.name}-${dayStr}" class="px-4 py-2">
       ${content}
     </div>
   </section>
@@ -138,9 +138,9 @@ const generateIndex = async () => {
       <h1 class="text-2xl font-bold uppercase">${project.name.toUpperCase()}</h1>
       <button class="text-xl font-bold" id="btn-${
         project.name
-      }-${dayStr}">+</button>
+      }-${dayStr}">-</button>
     </div>
-    <div id="${project.name}-${dayStr}" class="hidden px-4 py-2">
+    <div id="${project.name}-${dayStr}" class="px-4 py-2">
       <p><i>Tidak ada commit hari ini.</i></p>
     </div>
   </section>
