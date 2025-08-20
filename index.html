@@ -3551,6 +3551,17 @@ document.addEventListener("DOMContentLoaded", function () {
   highlightText("fahmiitmamul", "text-purple-500 font-bold");
 });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Ambil semua <a>
+    const links = document.querySelectorAll("a");
+
+    // Ubah style warna menjadi orange
+    links.forEach(link => {
+      link.style.color = "orange";
+    });
+  });
+</script>
 
   </body>
   </html>
