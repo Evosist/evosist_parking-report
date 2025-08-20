@@ -2,10 +2,11 @@
 
 /* Reset sederhana */
 body {
+  padding: 1rem;
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f4f6f9;
-  color: #004085;
+  color: #333;
 }
 
 /* Container utama */
@@ -25,6 +26,7 @@ body {
 }
 
 .report-header h1 {
+  text-align: center;
   margin: 0;
   font-size: 24px;
 }
@@ -63,3 +65,75 @@ body {
   margin-top: 20px;
   color: #666;
 }
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 kolom sama lebar */
+  gap: 0.4rem; /* jarak antar tombol */
+  margin-bottom: 80px;
+}
+
+.tabs button {
+  width: 100%;
+  border-radius:8px;
+  margin: 0.2rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #FF5B2A;
+  background: #000000;
+  /* background-color: #FF5B2A; */
+  color: #FF5B2A;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.tabs button.active {
+  background: #FF5B2A;
+  /* background-color: #FF5B2A; */
+  color: white;
+  font-weight:700;
+}
+
+.day-content {
+  display: none;
+  background:white;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.day-content.active {
+  display: block;
+}
+
+section {
+  margin-bottom: 1rem;
+}
+
+section > ul > li {
+  border: 1px solid hsla(0, 0%, 0%, 0.2);
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  /* color:#000000; */
+  /* position:relative; */
+}
+
+section > ul > li > strong{
+  position:relative;
+  display:inline-flex;
+  align-items: center;
+  gap:4px;
+}
+
+section > ul > li > strong::before{
+  content:'';
+  height: 20px;
+  width: 20px;
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 32px;
+  position:inline-block;
+}
+
+.text-primary{color: #FF5B2A}

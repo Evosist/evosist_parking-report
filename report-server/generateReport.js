@@ -46,8 +46,10 @@ const generateHTML = (commits) => {
   if (!commits || commits.length === 0) return `<p><i>Tidak ada commit hari ini.</i></p>`;
   return `<ul>\n${commits.map(c => `
     <li>
-      <strong>${c.author}</strong> — ${c.message}<br>
-      <a href="${c.link}" target="_blank">${c.hash.slice(0, 7)}</a> (${new Date(c.date).toLocaleTimeString()})
+      <strong>${c.author}</strong>
+      <div class="massage-commit">${c.message}</div>
+      <div class="time-commit">(${new Date(c.date).toLocaleTimeString()})</div>
+      <div class="link-commit">Buka link commit: <a href="${c.link}" target="_blank">${c.hash.slice(0, 7)}</a> </div>
     </li>`).join('\n')}\n</ul>`;
 };
 
@@ -92,9 +94,9 @@ const generateIndex = async () => {
       const filePath = path.join(config.reportPath, project.name, `${dayStr}.html`);
       if (await fs.pathExists(filePath)) {
         const content = await fs.readFile(filePath, 'utf-8');
-        sections.push(`<section><h3>${project.name.toUpperCase()}</h3>${content}</section>`);
+        sections.push(`<section><h1 class="text-3xl font-extrabold uppercase text-center">${project.name.toUpperCase()}</h1>${content}</section>`);
       } else {
-        sections.push(`<section><h3>${project.name.toUpperCase()}</h3><p><i>Tidak ada commit hari ini.</i></p></section>`);
+        sections.push(`<section><h1 class="text-3xl font-extrabold uppercase text-center">${project.name.toUpperCase()}</h1><p><i>Tidak ada commit hari ini.</i></p></section>`);
       }
     }
     sectionsByDay[dayStr] = sections.join('\n');
@@ -108,7 +110,7 @@ const generateIndex = async () => {
 
   const contents = days.map((day, idx) => `
     <div id="${day}" class="day-content ${idx === 0 ? 'active' : ''}">
-      <h2>${day}</h2>
+      <div class="flex">Tanggal: <h2 class="font-semibold ml-1 text-primary">${day}</h2></div>
       ${sectionsByDay[day]}
     </div>`).join('\n');
 
@@ -134,10 +136,12 @@ const generateIndex = async () => {
       .day-content.active { display: block; }
       section { margin-bottom: 1rem; }
     </style>-->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <h1>Laporan Commit Tim (30 Hari Terakhir)</h1>
+    <h1 class="text-3xl font-extrabold uppercase text-center">Laporan Commit Tim Evolusi Park</h1>
+  <h2 class="text-xl font-semibold text-center mb-4">(30 Hari Terakhir)</h2>
     <div class="tabs">${tabs}</div>
     ${contents}
     <script>
