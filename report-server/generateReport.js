@@ -118,7 +118,7 @@ const generateIndex = async () => {
   <head>
     <meta charset="UTF-8">
     <title>Laporan Gabungan 30 Hari</title>
-    <style>
+    <!--<style>
       body { font-family: sans-serif; padding: 1rem; }
       h1 { text-align: center; }
       .tabs { display: flex; flex-wrap: wrap; margin-bottom: 1rem; }
@@ -133,7 +133,8 @@ const generateIndex = async () => {
       .day-content { display: none; }
       .day-content.active { display: block; }
       section { margin-bottom: 1rem; }
-    </style>
+    </style>-->
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>Laporan Commit Tim (30 Hari Terakhir)</h1>
