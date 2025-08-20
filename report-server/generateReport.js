@@ -147,10 +147,23 @@ const generateIndex = async () => {
 const pushReportRepo = async (commitMessage) => {
   const git = simpleGit(config.reportRepo);
   console.log(`🚀 Push ke repo pusat (reportRepo)`);
-  await git.add(['./logs/*', 'index.html']);
-  await git.commit(commitMessage);
-  await git.push();
-  console.log(`✅ Repo pusat berhasil di-push`);
+
+  try {
+    await git.add(['./logs/*', 'index.html']);
+    const status = await git.status();
+    if (status.files.length === 0) {
+      console.log(`ℹ️ Tidak ada perubahan untuk di-commit di repo pusat`);
+      return false;
+    }
+
+    await git.commit(commitMessage);
+    await git.push();
+    console.log(`✅ Repo pusat berhasil di-push`);
+    return true;
+  } catch (err) {
+    console.log(`❌ Gagal push ke repo pusat: ${err.message}`);
+    return false;
+  }
 };
 
 const main = async () => {
@@ -173,8 +186,12 @@ const main = async () => {
 
   if (allSuccess) {
     await generateIndex();
-    await pushReportRepo(commitMessage);
-    console.log('✅ Semua proses selesai. Laporan harian berhasil disimpan dan dipublikasikan.');
+    const reportSuccess = await pushReportRepo(commitMessage);
+    if (reportSuccess) {
+      console.log('✅ Semua proses selesai. Laporan harian berhasil disimpan dan dipublikasikan.');
+    } else {
+      console.log('⛔ Push ke repo pusat gagal. Laporan tidak dipublikasikan.');
+    }
   } else {
     console.log('⛔ Push ke salah satu repo gagal. Laporan tidak dikirim ke repo pusat.');
   }

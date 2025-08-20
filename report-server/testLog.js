@@ -1,7 +1,7 @@
 const simpleGit = require('simple-git');
 const path = require('path');
 
-// const repoPath = 'D:/Github/evosist_parking-backend'; // ganti sesuai repo kerja kamu
+
 const repoPath = 'D:/Github/evosist_parking-frontend';
 
 (async () => {
