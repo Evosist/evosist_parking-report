@@ -75,27 +75,27 @@ body {
 
 .tabs button {
   width: 100%;
-  border-radius:8px;
+  border-radius: 8px;
   margin: 0.2rem;
   padding: 0.5rem 1rem;
-  border: 2px solid #FF5B2A;
+  border: 2px solid #ff5b2a;
   background: #000000;
   /* background-color: #FF5B2A; */
-  color: #FF5B2A;
+  color: #ff5b2a;
   cursor: pointer;
   letter-spacing: 1px;
 }
 
 .tabs button.active {
-  background: #FF5B2A;
+  background: #ff5b2a;
   /* background-color: #FF5B2A; */
   color: white;
-  font-weight:700;
+  font-weight: 700;
 }
 
 .day-content {
   display: none;
-  background:white;
+  background: white;
   padding: 20px;
   border-radius: 16px;
 }
@@ -104,8 +104,27 @@ body {
   display: block;
 }
 
+.selected-date {
+  background: hsla(14, 100%, 58%, 0.1);
+  border: 1px solid #ff5b2a;
+  max-width: 200px;
+  text-align: center!;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
 section {
+  background: white;
   margin-bottom: 1rem;
+  padding: 16px;
+  border: 1px solid hsla(14, 100%, 58%, 0.1);
+  box-shadow: 4px 12px 40px 0 rgba(0, 0, 0, 0.064);
+  border-radius: 20px;
+}
+
+section h1{
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 section > ul > li {
@@ -119,21 +138,23 @@ section > ul > li {
   /* position:relative; */
 }
 
-section > ul > li > strong{
-  position:relative;
-  display:inline-flex;
+section > ul > li > strong {
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap:4px;
+  gap: 4px;
 }
 
-section > ul > li > strong::before{
-  content:'';
+section > ul > li > strong::before {
+  content: "";
   height: 20px;
   width: 20px;
   background: #000000;
   border: 1px solid #000000;
   border-radius: 32px;
-  position:inline-block;
+  position: inline-block;
 }
 
-.text-primary{color: #FF5B2A}
+.text-primary {
+  color: #ff5b2a;
+}

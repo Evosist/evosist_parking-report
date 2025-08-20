@@ -110,7 +110,7 @@ const generateIndex = async () => {
 
   const contents = days.map((day, idx) => `
     <div id="${day}" class="day-content ${idx === 0 ? 'active' : ''}">
-      <div class="flex">Tanggal: <h2 class="font-semibold ml-1 text-primary">${day}</h2></div>
+      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">${day}</h2></div>
       ${sectionsByDay[day]}
     </div>`).join('\n');
 
