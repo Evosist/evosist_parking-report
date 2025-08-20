@@ -1,0 +1,65 @@
+/* style.css */
+
+/* Reset sederhana */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* Container utama */
+.report-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.report-header {
+  background: #004085;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.report-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Tabel */
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.report-table th,
+.report-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.report-table th {
+  background: #007bff;
+  color: white;
+}
+
+.report-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.report-table tr:hover {
+  background: #e2e6ea;
+}
+
+/* Footer */
+.report-footer {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  color: #666;
+}
