@@ -174,3 +174,14 @@ section > div > ul > li > a,
   font-size:12px;
   opacity: 0.72;
 }
+
+section button{
+  padding: 8px;
+  width: 40px;height:40px;
+  font-size:32px!;
+  display:flex;
+  justify-content:center;align-items:center;
+  border-radius: 12px;
+  background:#ff5b2a;
+  color: black;
+}
