@@ -26,7 +26,10 @@
   <body>
     <h1 class="text-3xl font-extrabold uppercase text-center">Laporan Commit Tim Evolusi Park</h1>
   <h2 class="text-xl font-semibold text-center mb-4">(30 Hari Terakhir)</h2>
-    <div class="tabs"><button onclick="showDay('2025-08-21')" class="active">2025-08-21</button>
+    <div class="tabs"><button onclick="showDay('2025-08-24')" class="active">2025-08-24</button>
+<button onclick="showDay('2025-08-23')" class="">2025-08-23</button>
+<button onclick="showDay('2025-08-22')" class="">2025-08-22</button>
+<button onclick="showDay('2025-08-21')" class="">2025-08-21</button>
 <button onclick="showDay('2025-08-20')" class="">2025-08-20</button>
 <button onclick="showDay('2025-08-19')" class="">2025-08-19</button>
 <button onclick="showDay('2025-08-18')" class="">2025-08-18</button>
@@ -52,12 +55,93 @@
 <button onclick="showDay('2025-07-29')" class="">2025-07-29</button>
 <button onclick="showDay('2025-07-28')" class="">2025-07-28</button>
 <button onclick="showDay('2025-07-27')" class="">2025-07-27</button>
-<button onclick="showDay('2025-07-26')" class="">2025-07-26</button>
-<button onclick="showDay('2025-07-25')" class="">2025-07-25</button>
-<button onclick="showDay('2025-07-24')" class="">2025-07-24</button>
-<button onclick="showDay('2025-07-23')" class="">2025-07-23</button></div>
+<button onclick="showDay('2025-07-26')" class="">2025-07-26</button></div>
     
-    <div id="2025-08-21" class="day-content active">
+    <div id="2025-08-24" class="day-content active">
+      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-08-24</h2></div>
+      
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('backend-2025-08-24')">
+      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
+      <button class="text-xl font-bold" id="btn-backend-2025-08-24">-</button>
+    </div>
+    <div id="backend-2025-08-24" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('frontend-2025-08-24')">
+      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
+      <button class="text-xl font-bold" id="btn-frontend-2025-08-24">-</button>
+    </div>
+    <div id="frontend-2025-08-24" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+    </div>
+
+    <div id="2025-08-23" class="day-content ">
+      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-08-23</h2></div>
+      
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('backend-2025-08-23')">
+      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
+      <button class="text-xl font-bold" id="btn-backend-2025-08-23">-</button>
+    </div>
+    <div id="backend-2025-08-23" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('frontend-2025-08-23')">
+      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
+      <button class="text-xl font-bold" id="btn-frontend-2025-08-23">-</button>
+    </div>
+    <div id="frontend-2025-08-23" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+    </div>
+
+    <div id="2025-08-22" class="day-content ">
+      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-08-22</h2></div>
+      
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('backend-2025-08-22')">
+      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
+      <button class="text-xl font-bold" id="btn-backend-2025-08-22">-</button>
+    </div>
+    <div id="backend-2025-08-22" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('frontend-2025-08-22')">
+      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
+      <button class="text-xl font-bold" id="btn-frontend-2025-08-22">-</button>
+    </div>
+    <div id="frontend-2025-08-22" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+    </div>
+
+    <div id="2025-08-21" class="day-content ">
       <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-08-21</h2></div>
       
   <section class="mb-4 border rounded shadow">
@@ -67,7 +151,15 @@
       <button class="text-xl font-bold" id="btn-backend-2025-08-21">-</button>
     </div>
     <div id="backend-2025-08-21" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
+      <ul>
+
+    <li>
+      <strong>fahmiitmamul</strong>
+      <div class="massage-commit"> ✉️fix: update tabel transaksi kolom is_manual</div>
+      <div class="time-commit">🕒 (16.17.45)</div>
+      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/858f593f9a316dcbd8c50aa117cf68db69a36153" target="_blank">858f593</a> </div>
+    </li>
+</ul>
     </div>
   </section>
 
@@ -79,7 +171,15 @@
       <button class="text-xl font-bold" id="btn-frontend-2025-08-21">-</button>
     </div>
     <div id="frontend-2025-08-21" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
+      <ul>
+
+    <li>
+      <strong>Zen Zalepik</strong>
+      <div class="massage-commit"> ✉️refactor: integrasi filter API Laporan Data > Kendaraan > Kendaraan In</div>
+      <div class="time-commit">🕒 (07.44.46)</div>
+      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-frontend/commit/1f11888b3ca0e629c7f5f1f918afbee2d5ce60ad" target="_blank">1f11888</a> </div>
+    </li>
+</ul>
     </div>
   </section>
 
@@ -3328,177 +3428,6 @@
       <button class="text-xl font-bold" id="btn-frontend-2025-07-26">-</button>
     </div>
     <div id="frontend-2025-07-26" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
-    </div>
-  </section>
-
-    </div>
-
-    <div id="2025-07-25" class="day-content ">
-      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-07-25</h2></div>
-      
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('backend-2025-07-25')">
-      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
-      <button class="text-xl font-bold" id="btn-backend-2025-07-25">-</button>
-    </div>
-    <div id="backend-2025-07-25" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
-    </div>
-  </section>
-
-
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('frontend-2025-07-25')">
-      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
-      <button class="text-xl font-bold" id="btn-frontend-2025-07-25">-</button>
-    </div>
-    <div id="frontend-2025-07-25" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
-    </div>
-  </section>
-
-    </div>
-
-    <div id="2025-07-24" class="day-content ">
-      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-07-24</h2></div>
-      
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('backend-2025-07-24')">
-      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
-      <button class="text-xl font-bold" id="btn-backend-2025-07-24">-</button>
-    </div>
-    <div id="backend-2025-07-24" class="px-4 py-2">
-      <ul>
-
-    <li>
-      <strong>fahmiitmamul</strong>
-      <div class="massage-commit"> ✉️feat: database dump</div>
-      <div class="time-commit">🕒 (13.08.20)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/8a7bc370774482c08cd6056850e5685b18f7b109" target="_blank">8a7bc37</a> </div>
-    </li>
-
-    <li>
-      <strong>fahmiitmamul</strong>
-      <div class="massage-commit"> ✉️Merge branch 'main' of https://github.com/Evosist/evolusipark_backend</div>
-      <div class="time-commit">🕒 (12.07.57)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/e0e228f192a73ca4a49e99d93ee516e7cd008b78" target="_blank">e0e228f</a> </div>
-    </li>
-
-    <li>
-      <strong>fahmiitmamul</strong>
-      <div class="massage-commit"> ✉️fix: update backend</div>
-      <div class="time-commit">🕒 (12.07.54)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/179548d6347a0fa7c1bb60947d84c673206f90de" target="_blank">179548d</a> </div>
-    </li>
-
-    <li>
-      <strong>Itmamul Fahmi</strong>
-      <div class="massage-commit"> ✉️Update README.md</div>
-      <div class="time-commit">🕒 (11.52.21)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/79cae1bca6e3f4aee445e92ae09af27031d6dc2f" target="_blank">79cae1b</a> </div>
-    </li>
-
-    <li>
-      <strong>fahmiitmamul</strong>
-      <div class="massage-commit"> ✉️fix: update backend</div>
-      <div class="time-commit">🕒 (11.24.36)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/ed4a9fbd07ee71fa97293fe757acbd3a185dbd81" target="_blank">ed4a9fb</a> </div>
-    </li>
-</ul>
-    </div>
-  </section>
-
-
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('frontend-2025-07-24')">
-      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
-      <button class="text-xl font-bold" id="btn-frontend-2025-07-24">-</button>
-    </div>
-    <div id="frontend-2025-07-24" class="px-4 py-2">
-      <ul>
-
-    <li>
-      <strong>Zen Zalepik</strong>
-      <div class="massage-commit"> ✉️Create pnpm-lock.yaml</div>
-      <div class="time-commit">🕒 (12.03.13)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-frontend/commit/76e8fac85474cc1003c5a03e20ae688ef004d180" target="_blank">76e8fac</a> </div>
-    </li>
-
-    <li>
-      <strong>Zen Zalepik</strong>
-      <div class="massage-commit"> ✉️fix: delete lock</div>
-      <div class="time-commit">🕒 (11.39.22)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-frontend/commit/7d52b675f53b49a911b69f5039c0f321db6b24f2" target="_blank">7d52b67</a> </div>
-    </li>
-
-    <li>
-      <strong>Zen Zalepik</strong>
-      <div class="massage-commit"> ✉️fix: delete komentar di nvmrc</div>
-      <div class="time-commit">🕒 (11.19.07)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-frontend/commit/1b8921f6db1b0dc25df9649f218945e7059e788a" target="_blank">1b8921f</a> </div>
-    </li>
-
-    <li>
-      <strong>Zen Zalepik</strong>
-      <div class="massage-commit"> ✉️fix: commit</div>
-      <div class="time-commit">🕒 (10.44.57)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-frontend/commit/9c521377ed7e66cd32ee5f5532c90506e454a996" target="_blank">9c52137</a> </div>
-    </li>
-
-    <li>
-      <strong>Itmamul Fahmi</strong>
-      <div class="massage-commit"> ✉️fix: update API URL</div>
-      <div class="time-commit">🕒 (09.25.44)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-frontend/commit/a03aa195895e59b51f0d66b8d465ea7bec76fb34" target="_blank">a03aa19</a> </div>
-    </li>
-</ul>
-    </div>
-  </section>
-
-    </div>
-
-    <div id="2025-07-23" class="day-content ">
-      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-07-23</h2></div>
-      
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('backend-2025-07-23')">
-      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
-      <button class="text-xl font-bold" id="btn-backend-2025-07-23">-</button>
-    </div>
-    <div id="backend-2025-07-23" class="px-4 py-2">
-      <ul>
-
-    <li>
-      <strong>fahmiitmamul</strong>
-      <div class="massage-commit"> ✉️fix: update controller transaksi</div>
-      <div class="time-commit">🕒 (12.50.07)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/a2266ea52f2b453999321067913712d607fcb048" target="_blank">a2266ea</a> </div>
-    </li>
-
-    <li>
-      <strong>fahmiitmamul</strong>
-      <div class="massage-commit"> ✉️fix: update controller and router</div>
-      <div class="time-commit">🕒 (10.21.26)</div>
-      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/f7e5f02669d5fee58c980ba8986844b77413898b" target="_blank">f7e5f02</a> </div>
-    </li>
-</ul>
-    </div>
-  </section>
-
-
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('frontend-2025-07-23')">
-      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
-      <button class="text-xl font-bold" id="btn-frontend-2025-07-23">-</button>
-    </div>
-    <div id="frontend-2025-07-23" class="px-4 py-2">
       <p><i>Tidak ada commit hari ini.</i></p>
     </div>
   </section>
