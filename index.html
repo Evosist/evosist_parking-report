@@ -26,7 +26,8 @@
   <body>
     <h1 class="text-3xl font-extrabold uppercase text-center">Laporan Commit Tim Evolusi Park</h1>
   <h2 class="text-xl font-semibold text-center mb-4">(30 Hari Terakhir)</h2>
-    <div class="tabs"><button onclick="showDay('2025-08-24')" class="active">2025-08-24</button>
+    <div class="tabs"><button onclick="showDay('2025-08-25')" class="active">2025-08-25</button>
+<button onclick="showDay('2025-08-24')" class="">2025-08-24</button>
 <button onclick="showDay('2025-08-23')" class="">2025-08-23</button>
 <button onclick="showDay('2025-08-22')" class="">2025-08-22</button>
 <button onclick="showDay('2025-08-21')" class="">2025-08-21</button>
@@ -54,10 +55,37 @@
 <button onclick="showDay('2025-07-30')" class="">2025-07-30</button>
 <button onclick="showDay('2025-07-29')" class="">2025-07-29</button>
 <button onclick="showDay('2025-07-28')" class="">2025-07-28</button>
-<button onclick="showDay('2025-07-27')" class="">2025-07-27</button>
-<button onclick="showDay('2025-07-26')" class="">2025-07-26</button></div>
+<button onclick="showDay('2025-07-27')" class="">2025-07-27</button></div>
     
-    <div id="2025-08-24" class="day-content active">
+    <div id="2025-08-25" class="day-content active">
+      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-08-25</h2></div>
+      
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('backend-2025-08-25')">
+      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
+      <button class="text-xl font-bold" id="btn-backend-2025-08-25">-</button>
+    </div>
+    <div id="backend-2025-08-25" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+
+  <section class="mb-4 border rounded shadow">
+    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
+         onclick="toggleSection('frontend-2025-08-25')">
+      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
+      <button class="text-xl font-bold" id="btn-frontend-2025-08-25">-</button>
+    </div>
+    <div id="frontend-2025-08-25" class="px-4 py-2">
+      <p><i>Tidak ada commit hari ini.</i></p>
+    </div>
+  </section>
+
+    </div>
+
+    <div id="2025-08-24" class="day-content ">
       <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-08-24</h2></div>
       
   <section class="mb-4 border rounded shadow">
@@ -67,7 +95,15 @@
       <button class="text-xl font-bold" id="btn-backend-2025-08-24">-</button>
     </div>
     <div id="backend-2025-08-24" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
+      <ul>
+
+    <li>
+      <strong>fahmiitmamul</strong>
+      <div class="massage-commit"> ✉️fix: update audit pembatalan transaksi</div>
+      <div class="time-commit">🕒 (22.48.43)</div>
+      <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-backend/commit/dbbfe34ecc4118f32dc2560e95efa544ae49ceaf" target="_blank">dbbfe34</a> </div>
+    </li>
+</ul>
     </div>
   </section>
 
@@ -3401,34 +3437,6 @@
       <div class="link-commit">🔗 Buka link commit: <a class="teks-link" href="https://github.com/evosist/evosist_parking-frontend/commit/689408d14f8ed0fb95bc97e86551f95969036bea" target="_blank">689408d</a> </div>
     </li>
 </ul>
-    </div>
-  </section>
-
-    </div>
-
-    <div id="2025-07-26" class="day-content ">
-      <div class="flex selected-date">Tanggal: <h2 class="font-semibold ml-1 text-primary">2025-07-26</h2></div>
-      
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('backend-2025-07-26')">
-      <h1 class="text-2xl font-bold uppercase">BACKEND</h1>
-      <button class="text-xl font-bold" id="btn-backend-2025-07-26">-</button>
-    </div>
-    <div id="backend-2025-07-26" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
-    </div>
-  </section>
-
-
-  <section class="mb-4 border rounded shadow">
-    <div class="flex justify-between items-center bg-gray-100 px-4 py-2 cursor-pointer"
-         onclick="toggleSection('frontend-2025-07-26')">
-      <h1 class="text-2xl font-bold uppercase">FRONTEND</h1>
-      <button class="text-xl font-bold" id="btn-frontend-2025-07-26">-</button>
-    </div>
-    <div id="frontend-2025-07-26" class="px-4 py-2">
-      <p><i>Tidak ada commit hari ini.</i></p>
     </div>
   </section>
 
